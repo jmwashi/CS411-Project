@@ -6,10 +6,42 @@
 <body>
 	<h1>Results:</h1>
 	{% for entry in result %}
+	<p>Add Event: <input type="checkbox" name="events" id="{{ loop.index }}" value="{{entry.Name}}"></p>
+	<button onclick="check('{{loop.index|tojson|string}}')">Check Checkbox</button>
+	<button onclick="uncheck('{{loop.index|tojson|string}}')">Uncheck Checkbox</button>
 	<img src={{entry.Picture}} height="150" width="150">
 	<p><b>Name:</b> {{ entry.Name }}</p>
 	<p><b>Location:</b> {{ entry.Location }}</p>
 	<p><b>Rating:</b> {{ entry.Rating }}</p> <br/>
+	<hr style="border-top: solid; 1px;" />
 	{% endfor %}
+	<button onclick="addYelpEvent()">Confirm</button>
+	<p id="show"></p>
+
+	<script type="text/javascript">
+
+		function check(id) {
+    		document.getElementById(id).checked = true;
+    		
+		}
+
+		function uncheck(id) {
+		    document.getElementById(id).checked = false;
+		}
+
+		function addYelpEvent() {
+    		var x = document.getElementsByName("events");
+    		for (element in x) {
+    			if (element.checked == true){
+    			document.write(element.value);
+    		
+    			}
+    		}
+    		// var checkedValue = document.querySelector('.events:checked').id;
+    		// document.write(checkedValue)
+    		}
+    	
+
+	</script>
 </body>
 </html>
