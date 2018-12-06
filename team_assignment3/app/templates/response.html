@@ -6,9 +6,9 @@
 <body>
 	<h1>Results:</h1>
 	{% for entry in result %}
-	<p>Add Event: <input type="checkbox" name="events" id="{{ loop.index }}" value="{{entry.Name}}"></p>
+	<p>Add Event: <input type="checkbox" name="events" id='{{ loop.index }}' value="{{entry.Name}}">
 	<button onclick="check('{{loop.index|tojson|string}}')">Check Checkbox</button>
-	<button onclick="uncheck('{{loop.index|tojson|string}}')">Uncheck Checkbox</button>
+	<button onclick="uncheck('{{loop.index|tojson|string}}')">Uncheck Checkbox</button></p>
 	<img src={{entry.Picture}} height="150" width="150">
 	<p><b>Name:</b> {{ entry.Name }}</p>
 	<p><b>Location:</b> {{ entry.Location }}</p>
@@ -31,12 +31,16 @@
 
 		function addYelpEvent() {
     		var x = document.getElementsByName("events");
-    		for (element in x) {
-    			if (element.checked == true){
-    			document.write(element.value);
+    		var counter=0;
+    		var result="";
+    		while(counter < x.length) {
+    			if (x[counter].checked == true){
+    				result+=(x[counter].getAttribute("value"));
+    			counter++;
     		
     			}
     		}
+    		document.write(result);
     		// var checkedValue = document.querySelector('.events:checked').id;
     		// document.write(checkedValue)
     		}
