@@ -1,0 +1,9 @@
+{% block content %}
+    <h1>User: {{ user.username }}</h1>
+    <hr>
+    {% for meet in meet_ups %}
+    <p>
+    {{ meet.title }}: <b>{{ meet.description }}</b>
+    </p>
+    {% endfor %}
+{% endblock %}
