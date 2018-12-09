@@ -1,13 +1,25 @@
+<h1>GetTogether</h1>
 {% block content %}
-    <h1>User: {{ user.username }}</h1>
+    <h1>{{ user.username }}</h1>
     <hr>
     <h2>Meet</h2>
     {{ meet.title }}: <b>{{ meet.description }}</b>
     <br>
     <h2>Events</h2>
+    {% if events %}
     {% for event in events %}
     <p>
-    {{ event.title }}: <b>{{ event.description }}</b>
+    <b>{{ event.title }}</b> <br />
+Description: {{ event.description }}<br />
+Address: {{ event.address }} <br />
+    {{ event.city }} <br />
+Time: {{ event.time }}<br />
     </p>
     {% endfor %}
+    <p><a href='/create_event/{{meet.id}}'>Add a New Event!</a></p>
+    {% else %}
+    <p>You Have No Events For This Meetup! <a href='/create_event/{{meet.id}}'>Create an Event</a></p>
+    {% endif %}
 {% endblock %}
+
+<p>Go to <a href='/hello'>Profile</a></p>

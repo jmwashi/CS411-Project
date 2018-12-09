@@ -1,3 +1,11 @@
-{% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
-{% endblock %}
+<h1>Welcome to GetTogether</h1>
+{% if message %}
+    <h3>{{message}}</h3>
+{% endif %}
+
+{% if current_user.is_anonymous %}
+<p>You should <a href='/login'>login!</a></p>
+{% else %}
+<p>Go to <a href='/hello'>Profile</a></p>
+{% endif %}
+

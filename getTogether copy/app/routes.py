@@ -19,18 +19,33 @@ result = ''
 
 @app.route('/')
 @app.route('/index')
-@app.route('/profile')
 def index():
     if current_user.is_anonymous:
-        return redirect('/authorize/facebook')
+        return render_template("index.html", message='Login/SignUp Using Facebook')
+    else:
+        return render_template("index.html", message='Welcome Back!', title='Home Page')
     return render_template("index.html", title='Home Page')
 
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if current_user.is_anonymous:
+        return redirect('/authorize/facebook')
+    else:
+        return render_template("index.html", title='Home Page')
+
+@app.route('/hello', methods=['GET', 'POST'])
+@login_required
+def showProfile():
+    user = User.query.filter_by(id=current_user.id).first_or_404()
+    meet_ups = Meet.query.filter_by(owner_id=current_user.id).all()
+    return render_template('hello.html', meet_ups=meet_ups,user=user)
 
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 
 #need to call database to grab current user to properly create event and meetup. doing tonight
 @app.route('/create_event/<meet_id>',methods=['GET', 'POST'])
