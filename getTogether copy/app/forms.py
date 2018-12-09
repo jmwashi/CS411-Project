@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField,RadioField,IntegerField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
@@ -22,3 +22,27 @@ class EventCreateForm(FlaskForm):
     time = StringField('time', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     submit = SubmitField('Create Event')
+
+class SearchForm(FlaskForm):
+    keyword = StringField('Keyword', validators=[DataRequired()])
+    city = StringField('Location', validators=[DataRequired()])
+    numberOfRestaruants = IntegerField('Number of Searches', validators=[DataRequired()])
+    submit = SubmitField('Search')
+
+class SelectForm(FlaskForm):
+    selection = RadioField('Label',choices=[('value','description'),('value_two','whatever')])
+    submit = SubmitField('Submit')
+
+class SearchEventForm(FlaskForm):
+	keyword = StringField('Keyword', validators=[DataRequired()])
+	sort_by = RadioField("Sort_by",choices=[("date","date"),("distance","distance"),("best","best")],validators=[DataRequired()])
+	location = StringField("Location",validators=[DataRequired()])
+	location_within = IntegerField ("Location_within_km",validators=[DataRequired()])
+	price = RadioField("price",choices=[("free","free"),("paid","paid")],validators=[DataRequired()])
+	start_after = StringField("Start_after (YYYY-MM-DD HH:MM:SS)", validators=[DataRequired()])
+	start_before = StringField("Start_before (YYYY-MM-DD HH:MM:SS)", validators=[DataRequired()])
+	submit = SubmitField('Search')
+
+class EBForm(FlaskForm):
+    selection = RadioField('Label',choices=[('value','description'),('value_two','whatever')])
+    submit = SubmitField('Submit')

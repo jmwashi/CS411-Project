@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Results</title>
+</head>
+<form action="" method="post" novalidate>
+		<h1>Results:</h1>
+		{% for entry in result %}
+		<img src={{entry.Picture}} height="150" width="150">
+		<p><b>Name:</b> {{ entry.Name }}</p>
+		<p><b>Location:</b> {{ entry.Location }}</p>
+		<p><b>Rating:</b> {{ entry.Rating }}</p> <br/>
+		<hr style="border-top: solid; 1px;" />
+		{% endfor %}
+		<p id="show"></p>
+		{{form.hidden_tag()}}
+		{{form.selection}}
+		<p>{{ form.submit() }}</p>
+</form>
+	
+	
+</html>
