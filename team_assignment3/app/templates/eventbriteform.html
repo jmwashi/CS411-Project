@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Look for Events</title>
+</head>
+<body>
+	<h1>Look for Events</h1>
+	<form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.keyword.label }}<br>
+            {{ form.keyword(size=32) }}
+        </p>
+        <p>
+            {{ form.sort_by.label }}<br>
+            {{ form.sort_by(size=32) }}
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=32) }}
+        </p>
+        <p>
+        	{{ form.location_within.label }}<br>
+            {{ form.location_within(size=32) }}
+        </p>
+        <p>
+        	{{ form.price.label }}<br>
+            {{ form.price(size=32) }}
+        </p>
+        <p>
+        	{{ form.start_after.label }}<br>
+            {{ form.start_after(size=32) }}
+        </p>
+        <p>
+        	{{ form.start_before.label }}<br>
+            {{ form.start_before(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
