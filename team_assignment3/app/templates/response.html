@@ -18,34 +18,5 @@
 	<button onclick="addYelpEvent()">Confirm</button>
 	<p id="show"></p>
 
-	<script type="text/javascript">
-
-		function check(id) {
-    		document.getElementById(id).checked = true;
-    		
-		}
-
-		function uncheck(id) {
-		    document.getElementById(id).checked = false;
-		}
-
-		function addYelpEvent() {
-    		var x = document.getElementsByName("events");
-    		var counter=0;
-    		var result="";
-    		while(counter < x.length) {
-    			if (x[counter].checked == true){
-    				result+=(x[counter].getAttribute("value"));
-    			counter++;
-    		
-    			}
-    		}
-    		document.write(result);
-    		// var checkedValue = document.querySelector('.events:checked').id;
-    		// document.write(checkedValue)
-    		}
-    	
-
-	</script>
 </body>
 </html>
