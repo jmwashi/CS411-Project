@@ -1,0 +1,13 @@
+{% block content %}
+    <h1>User: {{ user.username }}</h1>
+    <hr>
+    <h2>Meet</h2>
+    {{ meet.title }}: <b>{{ meet.description }}</b>
+    <br>
+    <h2>Events</h2>
+    {% for event in events %}
+    <p>
+    {{ event.title }}: <b>{{ event.description }}</b>
+    </p>
+    {% endfor %}
+{% endblock %}
