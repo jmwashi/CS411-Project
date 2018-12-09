@@ -17,6 +17,8 @@ Time: {{ event.time }}<br />
     </p>
     {% endfor %}
     <p><a href='/create_event/{{meet.id}}'>Add a New Event!</a></p>
+    <p><a href='/search_eventbrite/{{meet.id}}'>Add a New Eventbrite Event!</a></p>
+    <p><a href='/search_yelp/{{meet.id}}'>Add a New Yelp Event!</a></p>
     {% else %}
     <p>You Have No Events For This Meetup! <a href='/create_event/{{meet.id}}'>Create an Event</a></p>
     {% endif %}
