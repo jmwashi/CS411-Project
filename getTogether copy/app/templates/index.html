@@ -21,19 +21,12 @@
     <h3>{{message}}</h3>
 {% endif %}
 
+<p>Welcome to GetTogether where you can plan meetups with you and your friends.</p>
+
 {% if current_user.is_anonymous %}
 <p>You should <a href='/login' class="call-to-action-btn">login!</a></p>
 {% else %}
-<h2> Here's What You Have Going On! </h2>
-    {% if meet_ups %}
-        {% for meet in meet_ups %}
-            <p>
-            <a href="/meet/{{meet.id}}">{{ meet.title }}: <b>{{ meet.description }}</b>
-                </p><br />
-        {% endfor %}
-        {% else %}
-        <p>You Do Not Have Any Meetups<br /><br /> <a href='/create_meetup' class="call-to-action-btn">Create A New One</a></p><br />
-    {% endif %}
+<h2> Check out All Your Meetups <a href="hello">Here</a></h2>
 {% endif %}
 </body>
 </html>
