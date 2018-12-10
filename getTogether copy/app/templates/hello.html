@@ -1,0 +1,22 @@
+<h1>GetTogether</h1>
+
+{% if user %}
+<h3>Hello, {{ user.username }}!</h3>
+{% endif %}
+
+{% if message %}
+    <h3>{{message}}</h3>
+{% endif %}
+
+{% if meet_ups %}
+{% for meet in meet_ups %}
+<p>
+<a href="/meet/{{meet.id}}">{{ meet.title }}: <b>{{ meet.description }}</b>
+</p>
+{% endfor %}
+
+{% else %}
+    <p>You Do Not Have Any Meetups, <a href='/create_meetup'>Create A New One</a>.</p>
+{% endif %}
+
+<a href='/create_meetup'>Create a New Meetup</a>
