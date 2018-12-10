@@ -1,7 +1,9 @@
 html {
     background-color: #ffbd4a;
 }
-
+body {
+    font-family: 'Lato', sans-serif;
+}
 #navbar {
     height: 60px;
     width: 100%;
@@ -49,5 +51,6 @@ html {
 }
 
 .link:hover {
-    color: black;
+    color: white;
 }
+
