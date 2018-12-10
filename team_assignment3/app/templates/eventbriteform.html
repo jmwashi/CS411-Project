@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Look for Events</title>
+	<meta charset="UTF-8">
+	<link rel="form style" type="text/css" href="{{ url_for('static', filename='formStyle.css') }}">
 </head>
 <body>
 	<h1>Look for Events</h1>
@@ -35,7 +37,7 @@
         	{{ form.start_before.label }}<br>
             {{ form.start_before(size=32) }}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p name="submit">{{ form.submit() }}</p>
     </form>
 </body>
 </html>
