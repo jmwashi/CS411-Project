@@ -11,13 +11,12 @@
 <nav id="navbar">
     <a id="brand" href="index"><span class="emphasize">GetTogether</span></a>
     <div class="links">
-        <a class="link" href="index">Home</a>
-        <a class="link" href="hello">Profile</a>
+        <a class="link" href={{ url_for('index',filename='index.html') }}>Home</a>
+        <a class="link" href="/hello">Profile</a>
         <a class="link" href="/create_meetup">Create Meetup</a>
     </div>
 </nav>
 <h1>Create Event</h1>
-
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <p>
