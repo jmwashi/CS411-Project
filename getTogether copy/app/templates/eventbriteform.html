@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Look for Events</title>
-</head>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+        <link rel="icon" type="image/png" href="gtlogo.png" />
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+        <title>GetTogether</title>
+    </head>
 <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <a id="brand" href="#"><span class="emphasize">GetTogether</span></a>
+        <div class="links">
+            <a class="link" href="index">Home</a>
+            <a class="link" href="hello">Profile</a>
+            <a class="link" href="/create_meetup">Create Meetup</a>
+        </div>
+    </nav>
 	<h1>Look for Events</h1>
 	<form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
