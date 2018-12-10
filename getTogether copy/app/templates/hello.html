@@ -30,13 +30,13 @@
 {% for meet in meet_ups %}
 <p>
 <a href="/meet/{{meet.id}}">{{ meet.title }}: <b>{{ meet.description }}</b>
-</p>
+</p><br />
 {% endfor %}
 
 {% else %}
-    <p>You Do Not Have Any Meetups, <a href='/create_meetup'>Create A New One</a>.</p>
+    <p>You Do Not Have Any Meetups, <a href='/create_meetup' class="call-to-action-btn">Create A New One</a>.</p><br />
 {% endif %}
 
-<a href='/create_meetup'>Create a New Meetup</a>
+<a href='/create_meetup' class="call-to-action-btn">Create a New Meetup</a>
 </body>
 </html>

@@ -22,9 +22,18 @@
 {% endif %}
 
 {% if current_user.is_anonymous %}
-<p>You should <a href='/login'>login!</a></p>
+<p>You should <a href='/login' class="call-to-action-btn">login!</a></p>
 {% else %}
-<p>Go to <a href='/hello'>Profile</a></p>
+<h2> Here's What You Have Going On! </h2>
+    {% if meet_ups %}
+        {% for meet in meet_ups %}
+            <p>
+            <a href="/meet/{{meet.id}}">{{ meet.title }}: <b>{{ meet.description }}</b>
+                </p><br />
+        {% endfor %}
+        {% else %}
+        <p>You Do Not Have Any Meetups<br /><br /> <a href='/create_meetup' class="call-to-action-btn">Create A New One</a></p><br />
+    {% endif %}
 {% endif %}
 </body>
 </html>
