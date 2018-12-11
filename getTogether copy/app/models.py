@@ -23,6 +23,7 @@ class Meet(db.Model):
     events = db.relationship('Event', backref='Meet', lazy=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'),
         nullable=False)
+    guests = db.relationship('GuessList',backref='Meet',lazy=True)
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +36,11 @@ class Event(db.Model):
     this_id = db.Column(db.Integer, db.ForeignKey('meet.id'),
         nullable=False)
 
+class GuessList(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    username = db.Column(db.String(64),index=True,unique=True)
+    meet_id = db.Column(db.Integer, db.ForeignKey('meet.id'),
+        nullable=False)
 
 @login.user_loader
 def load_user(id):

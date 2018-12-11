@@ -46,3 +46,7 @@ class SearchEventForm(FlaskForm):
 class EBForm(FlaskForm):
     selection = RadioField('Label',choices=[('value','description'),('value_two','whatever')])
     submit = SubmitField('Submit')
+
+class GuestForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    submit = SubmitField('Add')
