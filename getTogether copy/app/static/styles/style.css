@@ -86,3 +86,9 @@ input[type=submit] {
 form {
     text-align: center;
 }
+
+label {
+font-weight: bold;
+width: 150px;
+}
+label:after { content: ": " }
