@@ -9,7 +9,7 @@
 <body>
     <!-- Navbar -->
     <nav id="navbar">
-        <a id="brand" href="index"><span class="emphasize">GetTogether</span></a>
+        <a id="brand" href={{ url_for('index',filename='index.html') }}><span class="emphasize">GetTogether</span></a>
         <div class="links">
             <a class="link" href={{ url_for('index',filename='index.html') }}>Home</a>
             <a class="link" href="/hello">Profile</a>
