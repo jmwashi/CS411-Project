@@ -21,15 +21,25 @@
     <h3>Meet</h3>
     {{ meet.title }}: <b>{{ meet.description }}</b>
     <br>
+    <h2>Guest List</h2>
+    {% if guests %}
+    {%for guest in guests%}
+    <p>{{guest.username}}</p>
+    {% endfor %}
+    {% else %}
+    <p></p>No, guests added. Would you like to add some?</p?
+    {% endif %}
+    <br />
+    <p><a href='/add_guest/{{meet.id}}' class="call-to-action-btn">Add Guests</a></p><br />
     <h2>Events</h2>
     {% if events %}
     {% for event in events %}
     <p>
     <b>{{ event.title }}</b> <br />
-<b>Description:</b> {{ event.description }}<br />
-<b>Address:</b> {{ event.address }} <br />
-<b>City:</b>   {{ event.city }} <br />
-<b>Time:</b> {{ event.time }}<br />
+Description: {{ event.description }}<br />
+Address: {{ event.address }} <br />
+    {{ event.city }} <br />
+Time: {{ event.time }}<br />
     </p>
     {% endfor %}
     <p><a href='/create_event/{{meet.id}}' class="call-to-action-btn">Add a New Event!</a></p><br />

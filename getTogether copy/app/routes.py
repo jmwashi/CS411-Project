@@ -1,9 +1,9 @@
 from app import app
 from app import db
 from flask import render_template, flash, redirect, url_for
-from app.forms import LoginForm, MeetUpCreateForm,EventCreateForm,SearchForm,SelectForm,SearchEventForm,EBForm
+from app.forms import LoginForm, MeetUpCreateForm,EventCreateForm,SearchForm,SelectForm,SearchEventForm,EBForm,GuestForm
 from flask_login import current_user, login_user, logout_user,login_required
-from app.models import User,Event,Meet
+from app.models import User,Event,Meet,GuessList
 from flask import request
 from werkzeug.urls import url_parse
 from rauth import OAuth1Service, OAuth2Service
@@ -65,8 +65,19 @@ def thisMeet(meet_id):
     user = User.query.filter_by(id=current_user.id).first_or_404()
     meet = Meet.query.filter_by(id=meet_id).first_or_404()
     events = Event.query.filter_by(this_id=meet.id).all()
-    return render_template('thisMeet.html',user=user,meet=meet,events=events)
+    guests = GuessList.query.filter_by(meet_id=meet.id).all()
+    return render_template('thisMeet.html',user=user,meet=meet,events=events,guests=guests)
 
+@app.route('/add_guest/<meet_id>',methods=['GET','POST'])
+@login_required
+def addGuest(meet_id):
+    form = GuestForm()
+    if form.validate_on_submit():
+        guest = GuessList(username=form.username.data,meet_id=meet_id)
+        db.session.add(guest)
+        db.session.commit()
+        return redirect(url_for('meetups'))
+    return render_template('addGuest.html',form=form)
 
 @app.route('/create_meetup',methods=['GET', 'POST'])
 @login_required
