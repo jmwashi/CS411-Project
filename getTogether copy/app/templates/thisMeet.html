@@ -26,10 +26,10 @@
     {% for event in events %}
     <p>
     <b>{{ event.title }}</b> <br />
-Description: {{ event.description }}<br />
-Address: {{ event.address }} <br />
-    {{ event.city }} <br />
-Time: {{ event.time }}<br />
+<b>Description:</b> {{ event.description }}<br />
+<b>Address:</b> {{ event.address }} <br />
+<b>City:</b>   {{ event.city }} <br />
+<b>Time:</b> {{ event.time }}<br />
     </p>
     {% endfor %}
     <p><a href='/create_event/{{meet.id}}' class="call-to-action-btn">Add a New Event!</a></p><br />
