@@ -10,3 +10,5 @@ It can often be difficult to plan social events and gatherings. While social med
 Using a APIs such as Yelp and Eventbrite, GetTogether allows users to search for events and restuarants based on their preferences. If there is an event the user would like to put in manually, there is an option for this as well.
 
 The idea of expanding on event planning through a do-it-all web application is one that would take advantage of the endless services that already gather data about local activites and streamline this information so users can efficiently plan their gatherings with the assistance of our web app.
+
+LINK TO MOCKUPS(by Gahouray): https://invis.io/D4R60RSHMWT
